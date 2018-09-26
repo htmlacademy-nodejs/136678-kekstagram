@@ -14,16 +14,19 @@ switch (command) {
       `--version — печатает версию приложения;`
     );
     process.exit();
+
   case `--version`:
     console.log(Project.VERSION);
     process.exit();
+
   case undefined:
     console.log(
       `Привет пользователь!\n` +
-      `Эта программа будет запускать сервер «${ Project.NAME }».\n` +
-      `Автор: ${ Project.AUTHOR }.`
+      `Эта программа будет запускать сервер «${Project.NAME}».\n` +
+      `Автор: ${Project.AUTHOR}.`
     );
     process.exit();
+
   default:
     console.error(
       `Неизвестная команда "${command}".\n` +
