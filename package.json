@@ -1,0 +1,25 @@
+{
+  "name": "136678-kekstagram",
+  "version": "0.0.1",
+  "description": "* Студент: [Мария Филиппова](https://up.htmlacademy.ru/nodejs/2/user/136678). * Наставник: [Игорь Антонов](https://htmlacademy.ru/profile/antonov).",
+  "main": "index.js",
+  "scripts": {
+    "test:lint": "eslint .",
+    "test": "npm run test:lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarusyaFilippova/136678-kekstagram.git"
+  },
+  "author": "Maria Filippova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarusyaFilippova/136678-kekstagram/issues"
+  },
+  "homepage": "https://github.com/MarusyaFilippova/136678-kekstagram#readme",
+  "devDependencies": {
+    "eslint": "5.6.1",
+    "eslint-config-htmlacademy": "0.5.2"
+  },
+  "dependencies": {}
+}
