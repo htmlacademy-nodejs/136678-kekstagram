@@ -1,60 +1,49 @@
 'use strict';
 
-const Project = {
-  VERSION: `v0.0.1`,
-  NAME: `Kekstagram`,
-  AUTHOR: `Maria Filippova`,
-};
-
-const CommandsName = {
-  HELP: `--help`,
-  VERSION: `--version`,
-};
+const commands = require(`./src/commands`);
+const {name, author} = require(`./package.json`);
 
 const command = process.argv[2];
 
-const commands = {
-  [CommandsName.HELP]: {
-    info: `Доступные команды:\n--help    — печатает этот текст;\n--version — печатает версию приложения;`,
-    action() {
-      console.log(this.info);
-    }
-  },
-  [CommandsName.VERSION]: {
-    info: Project.VERSION,
-    action() {
-      console.log(this.info);
-    }
-  },
-  default: {
-    info: `Привет пользователь!\nЭта программа будет запускать сервер «${Project.NAME}».\nАвтор: ${Project.AUTHOR}.`,
-    action() {
-      console.log(this.info);
-    }
-  },
-  error: {
-    info: `Неизвестная команда "${command}".\nЧтобы прочитать правила использования приложения, наберите "--help"`,
-    action() {
-      console.log(this.info);
-    }
-  },
+const helpCommand = {
+  name: `--help`,
+  description: `Показывает список доступных комманд;`,
+  execute() {
+    console.log(`Доступные команды:\n${helpCommand.name} - ${helpCommand.description}\n${Object.values(commands).map((it) => `${it.name} - ${it.description}`).join(`\n`)}`);
+  }
 };
 
+const error = {
+  name: `error`,
+  description: `Введена неизвестная команда`,
+  execute() {
+    console.log(`Неизвестная команда "${command}".\nЧтобы прочитать правила использования приложения, наберите "--help"`);
+  }
+};
+
+const greet = {
+  name: `greet`,
+  description: `Выводит приветственный текст, если не было передано параметров`,
+  execute() {
+    console.log(`Привет пользователь!\nЭта программа будет запускать сервер «${name}».\nАвтор: ${author}.`);
+  }
+};
+
+if (commands[command]) {
+  commands[command].execute();
+  process.exit(0);
+}
 
 switch (command) {
-  case CommandsName.HELP:
-    commands[command].action();
-    process.exit(0);
-    break;
-  case CommandsName.VERSION:
-    commands[command].action();
-    process.exit(0);
-    break;
   case undefined:
-    commands.default.action();
+    greet.execute();
+    process.exit(0);
+    break;
+  case helpCommand.name:
+    helpCommand.execute();
     process.exit(0);
     break;
   default:
-    commands.error.action();
+    error.execute();
     process.exit(1);
 }
