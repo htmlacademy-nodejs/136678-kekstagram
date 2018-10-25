@@ -26,7 +26,6 @@ const checkUniqueValue = (arr) => {
   for (const item of arr) {
     obj[item] = true;
   }
-  console.log(obj);
   return Object.keys(obj).length === arr.length;
 };
 

@@ -2,7 +2,7 @@
 
 const colors = require(`colors`);
 
-const {version} = require(`../package.json`);
+const {version} = require(`./package.json`);
 
 module.exports = {
   name: `--version`,

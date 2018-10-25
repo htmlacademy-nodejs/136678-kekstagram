@@ -1,7 +1,7 @@
 'use strict';
 
 const colors = require(`colors`);
-const commands = require(`./src/commands`);
+const commands = require(`./src/commands/commands`);
 const {name, author} = require(`./package.json`);
 
 const command = process.argv[2];
