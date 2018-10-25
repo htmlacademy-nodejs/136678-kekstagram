@@ -1,8 +1,9 @@
 'use strict';
 
 const colors = require(`colors`);
+const {Readline} = require(`./src/readline`);
 const commands = require(`./src/commands/commands`);
-const {name, author} = require(`./package.json`);
+// const {name, author} = require(`./package.json`);
 
 const command = process.argv[2];
 
@@ -22,13 +23,13 @@ const error = {
   }
 };
 
-const greet = {
-  name: `greet`,
-  description: `Выводит приветственный текст, если не было передано параметров`,
-  execute() {
-    console.log(`Привет пользователь!\nЭта программа будет запускать сервер «${colors.yellow(name)}».\nАвтор: ${colors.cyan(author)}.`);
-  }
-};
+// const greet = {
+//   name: `greet`,
+//   description: `Выводит приветственный текст, если не было передано параметров`,
+//   execute() {
+//     console.log(`Привет пользователь!\nЭта программа будет запускать сервер «${colors.yellow(name)}».\nАвтор: ${colors.cyan(author)}.`);
+//   }
+// };
 
 if (commands[command]) {
   commands[command].execute();
@@ -37,8 +38,8 @@ if (commands[command]) {
 
 switch (command) {
   case undefined:
-    greet.execute();
-    process.exit(0);
+    const readline = new Readline();
+    readline.greeting();
     break;
   case helpCommand.name:
     helpCommand.execute();

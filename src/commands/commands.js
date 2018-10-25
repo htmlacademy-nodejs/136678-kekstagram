@@ -1,9 +1,9 @@
 'use strict';
 
-const versionCommand = require(`./src/commands/version`);
-const authorCommand = require(`./src/commands/author`);
-const licenseCommand = require(`./src/commands/license`);
-const descriptionCommand = require(`./src/commands/description`);
+const versionCommand = require(`./version`);
+const authorCommand = require(`./author`);
+const licenseCommand = require(`./license`);
+const descriptionCommand = require(`./description`);
 
 module.exports = {
   [versionCommand.name]: versionCommand,
