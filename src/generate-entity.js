@@ -26,7 +26,7 @@ const generateContent = (data, maxAmount) => {
 
   const amount = getRandomNumber(maxAmount);
 
-  while (content.length < amount) {
+  while (content.length <= amount) {
     const newValue = getRandomElement(data);
     if (content.indexOf(newValue) === -1) {
       content.push(newValue);
