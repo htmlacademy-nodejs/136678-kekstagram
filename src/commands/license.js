@@ -1,7 +1,7 @@
 'use strict';
 
 const colors = require(`colors`);
-const {license} = require(`../package.json`);
+const {license} = require(`../../package.json`);
 
 module.exports = {
   name: `--license`,

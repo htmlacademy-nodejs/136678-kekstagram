@@ -1,5 +1,7 @@
 'use strict';
 
+const DEFAULT_URL = `https://picsum.photos/600/?random`;
+
 const DESCRIPTIONS_MAX_LENGTH = 140;
 const COMMENTS_MAX_LENGTH = 140;
 const DATE_INTERVAL_IN_MS = 1000 * 60 * 60 * 24 * 7;
@@ -76,6 +78,7 @@ module.exports = {
   COMMENTS,
   HASHTAGS,
   DESCRIPTIONS,
+  DEFAULT_URL,
   DESCRIPTIONS_MAX_LENGTH,
   COMMENTS_MAX_LENGTH,
   DATE_INTERVAL_IN_MS

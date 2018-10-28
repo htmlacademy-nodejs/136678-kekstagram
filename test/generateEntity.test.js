@@ -26,7 +26,6 @@ const checkUniqueValue = (arr) => {
   for (const item of arr) {
     obj[item] = true;
   }
-  console.log(obj);
   return Object.keys(obj).length === arr.length;
 };
 
@@ -84,10 +83,14 @@ describe(`Data Generator`, function () {
       assert.equal(Array.isArray(entity.comments), true);
     });
     it(`items are string`, () => {
-      assert(checkComments);
+      if (entity.comments.length !== 0) {
+        assert(checkComments);
+      }
     });
     it(`items of the correct length`, () => {
-      assert(checkCommentsLength);
+      if (entity.comments.length !== 0) {
+        assert(checkCommentsLength);
+      }
     });
   });
 
